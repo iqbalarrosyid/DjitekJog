@@ -1,30 +1,27 @@
 /* Import Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
 
-/* --- VARIABEL WARNA UNTUK TEMA TERANG (DEFAULT) --- */
+/* --- VARIABEL WARNA --- */
 :root {
   --primary-color: #805c34;
   --dark-color: #212529;
   --body-font: "Poppins", sans-serif;
 }
-
-/* --- VARIABEL WARNA UNTUK TEMA GELAP --- */
 [data-bs-theme="dark"] {
-  --primary-color: #805c34; /* Sedikit lebih cerah untuk kontras */
-  --bs-body-bg: #212529;
+  --primary-color: #805c34;
+  --bs-body-bg: #141618;
   --bs-body-color: #dee2e6;
-  --bs-tertiary-bg: #2b3035; /* Warna untuk card dan navbar-scrolled */
+  --bs-tertiary-bg: #000000;
 }
 
 /* General Styling */
 body {
   font-family: var(--body-font);
   scroll-padding-top: 70px;
-  background-color: var(--bs-body-bg); /* Menggunakan variabel bootstrap */
+  background-color: var(--bs-body-bg);
   color: var(--bs-body-color);
   transition: background-color 0.4s ease, color 0.4s ease;
 }
-
 a {
   color: var(--primary-color);
   text-decoration: none;
@@ -32,10 +29,9 @@ a {
 a:hover {
   color: color-mix(in srgb, var(--primary-color), white 20%);
 }
-
 .section-title {
   font-weight: 700;
-  color: var(--bs-body-color); /* Menggunakan variabel bootstrap */
+  color: var(--bs-body-color);
   position: relative;
   padding-bottom: 15px;
   margin-bottom: 20px;
@@ -52,7 +48,7 @@ a:hover {
   transform: translateX(-50%);
 }
 
-/* --- UPDATE GAYA NAVBAR --- */
+/* --- NAVBAR STYLING --- */
 .navbar {
   transition: all 0.4s ease;
   padding-top: 1rem;
@@ -68,11 +64,6 @@ a:hover {
   font-weight: 400;
   transition: color 0.4s ease;
 }
-.navbar .nav-link:hover {
-  color: rgba(255, 255, 255, 0.75) !important;
-}
-
-/* Update: Gunakan variabel untuk background saat di-scroll */
 .navbar-scrolled {
   background-color: var(--bs-tertiary-bg);
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
@@ -87,43 +78,109 @@ a:hover {
   color: var(--primary-color) !important;
 }
 
-/* --- UPDATE GAYA MENU MOBILE --- */
+/* Navbar Toggler Icon */
 .navbar-toggler {
   border: 1px solid rgba(255, 255, 255, 0.5);
 }
 .navbar-toggler:focus {
   box-shadow: none;
 }
-
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-  transition: background-image 0.4s ease;
 }
-.navbar-scrolled .navbar-toggler-icon,
-[data-bs-theme="dark"] .navbar-scrolled .navbar-toggler-icon {
+.navbar-scrolled .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28222, 226, 230, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
+/* Hide default Bootstrap mobile menu on smaller screens */
 @media (max-width: 991.98px) {
-  .navbar-menu-open {
-    background-color: var(--bs-tertiary-bg) !important; /* Gunakan variabel */
-  }
-  .navbar-menu-open .navbar-brand,
-  .navbar-menu-open .nav-link {
-    color: var(--bs-body-color) !important;
-  }
-  .navbar-menu-open .nav-link:hover {
-    color: var(--primary-color) !important;
-  }
-  .navbar-menu-open .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28222, 226, 230, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-  }
-  .navbar-menu-open .navbar-toggler {
-    border-color: rgba(0, 0, 0, 0.1);
+  .navbar-collapse {
+    display: none !important;
   }
 }
 
-/* Hero Section */
+/* --- MODERN MOBILE MENU OVERLAY --- */
+#mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0a0a0a;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
+}
+#mobile-menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+#mobile-menu-overlay .menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+#mobile-menu-overlay .navbar-brand {
+  color: #ffffff;
+}
+#mobile-menu-overlay #close-menu-btn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 2.5rem;
+  line-height: 1;
+  padding: 0;
+  cursor: pointer;
+}
+#mobile-menu-overlay .menu-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#mobile-menu-overlay .mobile-menu-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#mobile-menu-overlay .mobile-menu-nav li {
+  margin: 0.8rem 0;
+}
+#mobile-menu-overlay .mobile-menu-nav a {
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+#mobile-menu-overlay .mobile-menu-nav a:hover {
+  color: var(--primary-color);
+}
+#mobile-menu-overlay .menu-divider {
+  width: 80px;
+  border-color: rgba(255, 255, 255, 0.2);
+  margin: 2rem 0;
+}
+#mobile-menu-overlay .store-link {
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+}
+#mobile-menu-overlay .store-link:hover {
+  color: var(--primary-color);
+}
+
+/* --- PAGE SECTIONS (Keep as is) --- */
 #hero {
   height: 100vh;
   width: 100%;
@@ -142,16 +199,12 @@ a:hover {
   background-color: color-mix(in srgb, var(--primary-color), black 10%);
   border-color: color-mix(in srgb, var(--primary-color), black 10%);
 }
-
-/* Update Services Section */
 .bg-light {
-  background-color: var(
-    --bs-tertiary-bg
-  ) !important; /* Adaptasi untuk dark mode */
+  background-color: var(--bs-tertiary-bg) !important;
 }
 .service-card {
   border: none;
-  background-color: var(--bs-body-bg); /* Adaptasi */
+  background-color: var(--bs-body-bg);
   border-radius: 10px;
   transition: transform 0.3s, box-shadow 0.3s;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
@@ -168,8 +221,6 @@ a:hover {
   font-size: 2.5rem;
   color: var(--primary-color);
 }
-
-/* Portfolio Section */
 .portfolio-item {
   position: relative;
   overflow: hidden;
@@ -203,8 +254,6 @@ a:hover {
 .portfolio-info h5 {
   font-weight: 600;
 }
-
-/* Contact Section */
 .contact-info i {
   font-size: 2rem;
   color: var(--primary-color);
@@ -217,73 +266,11 @@ a:hover {
 .contact-info p a:hover {
   color: var(--primary-color);
 }
-
-/* Footer */
 footer.bg-dark {
   background-color: var(--dark-color) !important;
 }
 
-/* --- GAYA UNTUK TOMBOL TEMA BARU --- */
-#theme-toggle {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1050;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.2rem;
-  background-color: var(--bs-tertiary-bg);
-  color: var(--bs-body-color);
-  border: 1px solid var(--bs-border-color);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-#theme-toggle:hover {
-  background-color: var(--primary-color);
-  color: white;
-}
-
-/* Logika untuk menampilkan ikon yang benar */
-[data-bs-theme="light"] .theme-icon-dark {
-  display: inline-block;
-}
-[data-bs-theme="light"] .theme-icon-light {
-  display: none;
-}
-[data-bs-theme="dark"] .theme-icon-dark {
-  display: none;
-}
-[data-bs-theme="dark"] .theme-icon-light {
-  display: inline-block;
-}
-
-/* --- GAYA UNTUK TOMBOL WHATSAPP MELAYANG --- */
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  left: 20px; /* Di sisi kiri */
-  z-index: 1050;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: #25d366; /* Warna khas WhatsApp */
-  color: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.8rem; /* Ukuran ikon lebih besar */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-}
-.whatsapp-float:hover {
-  color: #ffffff;
-  transform: scale(1.1); /* Sedikit membesar saat disentuh */
-}
-
-/* --- GAYA UNTUK SEKSI TESTIMONI --- */
+/* Testimonials & Carousel */
 #testimonials {
   background-color: var(--bs-tertiary-bg);
 }
@@ -316,33 +303,81 @@ footer.bg-dark {
   background-color: var(--primary-color);
   border-radius: 5px;
 }
-
-/* --- GAYA BARU UNTUK CAROUSEL DI BAGIAN TENTANG KAMI --- */
 #aboutCarousel {
-  border-radius: 10px; /* Samakan dengan elemen lain */
-  overflow: hidden; /* Agar gambar mengikuti sudut melengkung */
+  border-radius: 10px;
+  overflow: hidden;
 }
-
 .about-carousel-image {
-  aspect-ratio: 4 / 3; /* Menjaga rasio gambar agar seragam */
-  object-fit: cover; /* Pastikan gambar menutupi area tanpa distorsi */
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
 }
-
-/* Mengubah warna indikator (titik-titik) carousel */
 #aboutCarousel .carousel-indicators [data-bs-target] {
   background-color: #ffffff;
   opacity: 0.8;
 }
-
 #aboutCarousel .carousel-indicators .active {
   background-color: var(--primary-color);
   opacity: 1;
 }
 
-/* --- GAYA UNTUK TOMBOL KEMBALI KE ATAS --- */
+/* --- FLOATING BUTTONS --- */
+#theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1050;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  background-color: var(--bs-tertiary-bg);
+  color: var(--bs-body-color);
+  border: 1px solid var(--bs-border-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+#theme-toggle:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+[data-bs-theme="light"] .theme-icon-dark {
+  display: inline-block;
+}
+[data-bs-theme="light"] .theme-icon-light {
+  display: none;
+}
+[data-bs-theme="dark"] .theme-icon-dark {
+  display: none;
+}
+[data-bs-theme="dark"] .theme-icon-light {
+  display: inline-block;
+}
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1050;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #25d366;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+.whatsapp-float:hover {
+  color: #ffffff;
+  transform: scale(1.1);
+}
 .back-to-top-float {
   position: fixed;
-  bottom: 80px; /* Posisinya di atas tombol WhatsApp */
+  bottom: 80px;
   right: 20px;
   z-index: 1050;
   width: 50px;
@@ -356,8 +391,6 @@ footer.bg-dark {
   font-size: 1.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-decoration: none;
-
-  /* Sembunyikan secara default */
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.4s ease, visibility 0.4s ease;
