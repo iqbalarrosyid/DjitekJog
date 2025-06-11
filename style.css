@@ -9,7 +9,7 @@
 }
 [data-bs-theme="dark"] {
   --primary-color: #805c34;
-  --bs-body-bg: #141618;
+  --bs-body-bg: #080808;
   --bs-body-color: #dee2e6;
   --bs-tertiary-bg: #000000;
 }
