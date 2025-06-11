@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Djitek - Reparasi Interior & Kustom</title>
+    <meta name="description" content="Portofolio Djitek, spesialis reparasi interior mobil, jok motor, tas, dan sofa dengan hasil berkualitas tinggi.">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        // Fungsi untuk menerapkan tema berdasarkan preferensi yang tersimpan atau preferensi sistem
+        const setPreferredTheme = () => {
+            const savedTheme = localStorage.getItem('theme');
+            // Jika ada tema tersimpan, gunakan itu. Jika tidak, gunakan tema sistem.
+            const theme = savedTheme ? savedTheme : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-bs-theme', theme);
+        }
+        // Jalankan fungsi saat script dimuat
+        setPreferredTheme();
+    </script>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#hero">Djitek.</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#hero">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Layanan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portofolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero" class="d-flex align-items-center text-center">
+        <div class="container">
+            <h1 class="display-3 fw-bold text-white">Keahlian Dalam Setiap Jahitan</h1>
+            <p class="lead text-white-50 mb-4">Mengubah interior kendaraan dan perabotan Anda dengan hasil premium.</p>
+            <div class="d-flex justify-content-center">
+                <a href="#portfolio" class="btn btn-primary btn-lg">Portofolio</a>
+                <a href="#contact" class="btn btn-outline-light btn-lg ms-2">Contact</a>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section id="about" class="py-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <img src="https://cms.disway.id/uploads/0aae21b40dd77474454901e9132fb447.jpg" class="img-fluid rounded shadow-sm" alt="Tentang Djitek">
+                    </div>
+                    <div class="col-lg-6 mt-4 mt-lg-0">
+                        <h2 class="section-title">Tentang Djitek</h2>
+                        <p class="text-secondary">Dengan pengalaman bertahun-tahun, Djitek berkomitmen untuk memberikan layanan reparasi dan kustomisasi dengan kualitas terbaik. Kami memahami bahwa setiap detail penting, mulai dari pemilihan bahan hingga ketelitian jahitan.</p>
+                        <p class="text-secondary">Kepuasan Anda adalah prioritas kami. Kami bangga dapat mengembalikan keindahan dan kenyamanan pada interior mobil, jok motor, sofa, hingga tas kesayangan Anda.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="py-5 bg-light">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-title">Layanan Kami</h2>
+                    <p class="text-secondary">Menyediakan solusi lengkap untuk kebutuhan interior dan kustom Anda.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card service-card text-center h-100">
+                            <div class="card-body">
+                                <div class="service-icon mb-3"><i class="bi bi-car-front-fill"></i></div>
+                                <h5 class="card-title fw-semibold">Interior Mobil</h5>
+                                <p class="card-text text-secondary">Reparasi dan kustom jok, doortrim, plafon, karpet dasar, dan lainnya.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card service-card text-center h-100">
+                            <div class="card-body">
+                                <div class="service-icon mb-3"><i class="bi bi-bicycle"></i></div>
+                                <h5 class="card-title fw-semibold">Jok Motor</h5>
+                                <p class="card-text text-secondary">Perbaikan, modifikasi, dan pembuatan jok motor kustom sesuai keinginan.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card service-card text-center h-100">
+                            <div class="card-body">
+                                <div class="service-icon mb-3"><i class="bi bi-briefcase-fill"></i></div>
+                                <h5 class="card-title fw-semibold">Tas & Lainnya</h5>
+                                <p class="card-text text-secondary">Jasa perbaikan ritsleting, tali, serta pembuatan berbagai jenis tas.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card service-card text-center h-100">
+                            <div class="card-body">
+                                <div class="service-icon mb-3"><i class="bi bi-house-heart-fill"></i></div>
+                                <h5 class="card-title fw-semibold">Sofa & Perabot</h5>
+                                <p class="card-text text-secondary">Service dan ganti kain/kulit untuk sofa, kursi makan, dan perabotan lainnya.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="py-5">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-title">Galeri Portofolio</h2>
+                    <p class="text-secondary">Beberapa contoh hasil kerja yang telah kami selesaikan.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="portfolio-item">
+                            <img src="https://www.dipostar.com/storage/news/czbDx6DLifRJTdFW03LxW6a8l9eJCBp3pg7bv5Wg.webp" class="img-fluid" alt="Hasil kerja jok mobil">
+                            <div class="portfolio-info"><h5>Jok Mobil Kustom</h5></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="portfolio-item">
+                            <img src="https://www.rukita.co/stories/wp-content/uploads/2020/01/tips-merawat-sofa-kulit-2.jpg" class="img-fluid" alt="Hasil reparasi sofa">
+                            <div class="portfolio-info"><h5>Reparasi Sofa Kulit</h5></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="portfolio-item">
+                            <img src="https://www.bjmjok.com/wp-content/uploads/2020/02/Jok-Motor-Semarang-Mbtech.jpg" class="img-fluid" alt="Hasil kustom jok motor">
+                            <div class="portfolio-info"><h5>Modifikasi Jok Motor</h5></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="portfolio-item">
+                             <img src="https://cet-auto.ru/storage/cars/Bentley/Bentayga/bentayga-17-1584004051.jpg" class="img-fluid" alt="Hasil reparasi doortrim">
+                             <div class="portfolio-info"><h5>Panel Doortrim</h5></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="portfolio-item">
+                            <img src="https://myvision.co.id/assets/uploads/2018/04/vision-2017-mclaren.jpeg" class="img-fluid" alt="Hasil kerja jok mobil 2">
+                            <div class="portfolio-info"><h5>Jok Mobil Klasik</h5></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="portfolio-item">
+                            <img src="https://media.karousell.com/media/photos/products/2023/11/27/tas_slempang__black_bag_1701047064_e064b772_progressive.jpg" class="img-fluid" alt="Hasil reparasi tas">
+                            <div class="portfolio-info"><h5>Perbaikan Tas</h5></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <section>
+
+        <section id="testimonials" class="py-5">
+            <div class="container" data-aos="fade-up">
+                <div class="text-center mb-5">
+                    <h2 class="section-title">Kata Pelanggan Kami</h2>
+                    <p class="text-secondary">Lihat apa yang mereka katakan tentang hasil kerja kami.</p>
+                </div>
+        
+                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="testimonial-card">
+                                <i class="bi bi-quote fs-1"></i>
+                                <p class="testimonial-text">"Pengerjaannya rapi banget, jok mobil saya jadi kelihatan baru lagi. Detail jahitannya presisi. Sangat direkomendasikan!"</p>
+                                <h6 class="testimonial-author">Bapak Heru - Semarang</h6>
+                                <p class="testimonial-service">Layanan: Jok Mobil</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="testimonial-card">
+                                <i class="bi bi-quote fs-1"></i>
+                                <p class="testimonial-text">"Sofa di ruang tamu saya disulap jadi mewah. Pilihan bahannya banyak dan berkualitas. Terima kasih Djitek!"</p>
+                                <h6 class="testimonial-author">Ibu Anisa - Batang</h6>
+                                <p class="testimonial-service">Layanan: Reparasi Sofa</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                                <div class="testimonial-card">
+                                <i class="bi bi-quote fs-1"></i>
+                                <p class="testimonial-text">"Respon cepat, pengerjaan juga cepat. Jok motor NMAX saya jadi lebih empuk dan stylish. Mantap!"</p>
+                                <h6 class="testimonial-author">Mas Rian - Gringsing</h6>
+                                <p class="testimonial-service">Layanan: Jok Motor</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-5 bg-light">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="section-title">Hubungi Kami</h2>
+                    <p class="text-secondary">Siap untuk memulai proyek Anda? Hubungi kami untuk konsultasi gratis.</p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 mx-auto text-center">
+                        <div class="contact-info">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <h5 class="fw-semibold">Alamat</h5>
+                            <p class="text-secondary"><a href="https://maps.app.goo.gl/udLikMvM2D5xwChY8" target="_blank">Gang Kembar 2, Jl. Karya, Plebean, Plelen, Kec. Gringsing, Kabupaten Batang, Jawa Tengah 51281</a></p>
+                        </div>
+                        <div class="contact-info mt-4">
+                            <i class="bi bi-telephone-fill"></i>
+                            <h5 class="fw-semibold">Telepon / WhatsApp</h5>
+                            <p class="text-secondary"><a href="https://wa.me/6283838746017" target="_blank">+62 812-3456-7890</a></p>
+                        </div>
+                        <div class="contact-info mt-4">
+                            <i class="bi bi-envelope-fill"></i>
+                            <h5 class="fw-semibold">Email</h5>
+                            <p class="text-secondary"><a href="mailto:info@djitek.com">info@djitek.com</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="theme-toggle" class="btn btn-lg">
+        <i class="bi bi-moon-stars-fill theme-icon-dark"></i>
+        <i class="bi bi-sun-fill theme-icon-light"></i>
+    </div>
+
+    <a href="https://wa.me/6283838746017?text=Halo%20Djitek,%20saya%20tertarik%20dengan%20jasa%20Anda." 
+       class="whatsapp-float" 
+       target="_blank">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <footer class="py-4 bg-dark text-white text-center">
+        <div class="container">
+            <p class="mb-0">Copyright &copy; <span id="year"></span> Djitek. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // --- (Script lama untuk navbar tetap di sini) ---
+        const nav = document.querySelector('.navbar');
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 50) {
+                nav.classList.add('navbar-scrolled');
+            } else {
+                nav.classList.remove('navbar-scrolled');
+            }
+        });
+        const navCollapse = document.querySelector('#navbarNav');
+        navCollapse.addEventListener('show.bs.collapse', function () {
+            if (!nav.classList.contains('navbar-scrolled')) {
+                nav.classList.add('navbar-menu-open');
+            }
+        });
+        navCollapse.addEventListener('hide.bs.collapse', function () {
+            nav.classList.remove('navbar-menu-open');
+        });
+        // --- (Akhir script lama) ---
+
+
+        // --- SCRIPT BARU UNTUK TOMBOL TEMA ---
+        const themeToggle = document.getElementById('theme-toggle');
+
+        themeToggle.addEventListener('click', () => {
+            // Dapatkan tema saat ini dari atribut data-bs-theme
+            const currentTheme = document.documentElement.getAttribute('data-bs-theme');
+            // Tentukan tema baru
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            // Terapkan tema baru
+            document.documentElement.setAttribute('data-bs-theme', newTheme);
+            // Simpan preferensi tema baru
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+</body>
+</html>

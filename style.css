@@ -1,0 +1,318 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+/* --- VARIABEL WARNA UNTUK TEMA TERANG (DEFAULT) --- */
+:root {
+  --primary-color: #805c34;
+  --dark-color: #212529;
+  --body-font: "Poppins", sans-serif;
+}
+
+/* --- VARIABEL WARNA UNTUK TEMA GELAP --- */
+[data-bs-theme="dark"] {
+  --primary-color: #805c34; /* Sedikit lebih cerah untuk kontras */
+  --bs-body-bg: #212529;
+  --bs-body-color: #dee2e6;
+  --bs-tertiary-bg: #2b3035; /* Warna untuk card dan navbar-scrolled */
+}
+
+/* General Styling */
+body {
+  font-family: var(--body-font);
+  scroll-padding-top: 70px;
+  background-color: var(--bs-body-bg); /* Menggunakan variabel bootstrap */
+  color: var(--bs-body-color);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+a:hover {
+  color: color-mix(in srgb, var(--primary-color), white 20%);
+}
+
+.section-title {
+  font-weight: 700;
+  color: var(--bs-body-color); /* Menggunakan variabel bootstrap */
+  position: relative;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+.section-title::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--primary-color);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* --- UPDATE GAYA NAVBAR --- */
+.navbar {
+  transition: all 0.4s ease;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.navbar .navbar-brand {
+  color: #ffffff;
+  font-size: 1.5rem;
+  transition: color 0.4s ease;
+}
+.navbar .nav-link {
+  color: #ffffff;
+  font-weight: 400;
+  transition: color 0.4s ease;
+}
+.navbar .nav-link:hover {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* Update: Gunakan variabel untuk background saat di-scroll */
+.navbar-scrolled {
+  background-color: var(--bs-tertiary-bg);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.navbar-scrolled .navbar-brand,
+.navbar-scrolled .nav-link {
+  color: var(--bs-body-color) !important;
+}
+.navbar-scrolled .nav-link:hover {
+  color: var(--primary-color) !important;
+}
+
+/* --- UPDATE GAYA MENU MOBILE --- */
+.navbar-toggler {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  transition: background-image 0.4s ease;
+}
+.navbar-scrolled .navbar-toggler-icon,
+[data-bs-theme="dark"] .navbar-scrolled .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28222, 226, 230, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+@media (max-width: 991.98px) {
+  .navbar-menu-open {
+    background-color: var(--bs-tertiary-bg) !important; /* Gunakan variabel */
+  }
+  .navbar-menu-open .navbar-brand,
+  .navbar-menu-open .nav-link {
+    color: var(--bs-body-color) !important;
+  }
+  .navbar-menu-open .nav-link:hover {
+    color: var(--primary-color) !important;
+  }
+  .navbar-menu-open .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28222, 226, 230, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+  .navbar-menu-open .navbar-toggler {
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Hero Section */
+#hero {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("https://www.blackxperience.com/assets/content/blackauto/autonews/toyota-gr-supra-matte-white-edition-3s.jpeg")
+      no-repeat center center;
+  background-size: cover;
+}
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  padding: 12px 30px;
+  font-weight: 600;
+}
+.btn-primary:hover {
+  background-color: color-mix(in srgb, var(--primary-color), black 10%);
+  border-color: color-mix(in srgb, var(--primary-color), black 10%);
+}
+
+/* Update Services Section */
+.bg-light {
+  background-color: var(
+    --bs-tertiary-bg
+  ) !important; /* Adaptasi untuk dark mode */
+}
+.service-card {
+  border: none;
+  background-color: var(--bs-body-bg); /* Adaptasi */
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+[data-bs-theme="dark"] .service-card {
+  box-shadow: none;
+  border: 1px solid var(--bs-border-color);
+}
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+.service-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+}
+
+/* Portfolio Section */
+.portfolio-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  aspect-ratio: 4 / 3;
+}
+.portfolio-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.portfolio-item:hover img {
+  transform: scale(1.1);
+}
+.portfolio-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  padding: 30px 20px 20px 20px;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.portfolio-item:hover .portfolio-info {
+  opacity: 1;
+}
+.portfolio-info h5 {
+  font-weight: 600;
+}
+
+/* Contact Section */
+.contact-info i {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+.contact-info p a {
+  color: var(--bs-secondary-color);
+  transition: color 0.3s;
+}
+.contact-info p a:hover {
+  color: var(--primary-color);
+}
+
+/* Footer */
+footer.bg-dark {
+  background-color: var(--dark-color) !important;
+}
+
+/* --- GAYA UNTUK TOMBOL TEMA BARU --- */
+#theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1050;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  background-color: var(--bs-tertiary-bg);
+  color: var(--bs-body-color);
+  border: 1px solid var(--bs-border-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+#theme-toggle:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Logika untuk menampilkan ikon yang benar */
+[data-bs-theme="light"] .theme-icon-dark {
+  display: inline-block;
+}
+[data-bs-theme="light"] .theme-icon-light {
+  display: none;
+}
+[data-bs-theme="dark"] .theme-icon-dark {
+  display: none;
+}
+[data-bs-theme="dark"] .theme-icon-light {
+  display: inline-block;
+}
+
+/* --- GAYA UNTUK TOMBOL WHATSAPP MELAYANG --- */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  left: 20px; /* Di sisi kiri */
+  z-index: 1050;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #25d366; /* Warna khas WhatsApp */
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem; /* Ukuran ikon lebih besar */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+.whatsapp-float:hover {
+  color: #ffffff;
+  transform: scale(1.1); /* Sedikit membesar saat disentuh */
+}
+
+/* --- GAYA UNTUK SEKSI TESTIMONI --- */
+#testimonials {
+  background-color: var(--bs-tertiary-bg);
+}
+.testimonial-card {
+  max-width: 700px;
+  margin: auto;
+  padding: 40px;
+  background-color: var(--bs-body-bg);
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid var(--bs-border-color);
+}
+.testimonial-card .bi-quote {
+  color: var(--primary-color);
+}
+.testimonial-text {
+  font-style: italic;
+  font-size: 1.1rem;
+  margin: 20px 0;
+}
+.testimonial-author {
+  font-weight: 700;
+}
+.testimonial-service {
+  font-size: 0.9rem;
+  color: var(--bs-secondary-color);
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: var(--primary-color);
+  border-radius: 5px;
+}
