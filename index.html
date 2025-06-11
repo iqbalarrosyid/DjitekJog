@@ -284,6 +284,10 @@
         <i class="bi bi-sun-fill theme-icon-light"></i>
     </div>
 
+    <a href="#hero" id="back-to-top" class="back-to-top-float">
+        <i class="bi bi-arrow-up"></i>
+    </a>
+
     <a href="https://wa.me/6283838617519?text=Halo%20Djitek,%20saya%20tertarik%20dengan%20jasa%20Anda." 
        class="whatsapp-float" 
        target="_blank">
@@ -304,12 +308,20 @@
 
         // --- (Script lama untuk navbar tetap di sini) ---
         const nav = document.querySelector('.navbar');
+        const backToTopBtn = document.getElementById('back-to-top'); // Tambahkan ini
         window.addEventListener('scroll', function () {
             if (window.scrollY > 50) {
                 nav.classList.add('navbar-scrolled');
             } else {
                 nav.classList.remove('navbar-scrolled');
             }
+
+            // Logika untuk tombol back-to-top (Tambahkan ini)
+    if (window.scrollY > 300) { // Muncul setelah scroll 300px
+        backToTopBtn.classList.add('show');
+    } else {
+        backToTopBtn.classList.remove('show');
+    }
         });
         const navCollapse = document.querySelector('#navbarNav');
         navCollapse.addEventListener('show.bs.collapse', function () {

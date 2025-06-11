@@ -338,3 +338,35 @@ footer.bg-dark {
   background-color: var(--primary-color);
   opacity: 1;
 }
+
+/* --- GAYA UNTUK TOMBOL KEMBALI KE ATAS --- */
+.back-to-top-float {
+  position: fixed;
+  bottom: 80px; /* Posisinya di atas tombol WhatsApp */
+  right: 20px;
+  z-index: 1050;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+
+  /* Sembunyikan secara default */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+.back-to-top-float.show {
+  opacity: 1;
+  visibility: visible;
+}
+.back-to-top-float:hover {
+  background-color: color-mix(in srgb, var(--primary-color), black 10%);
+  color: #ffffff;
+}
