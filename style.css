@@ -316,3 +316,25 @@ footer.bg-dark {
   background-color: var(--primary-color);
   border-radius: 5px;
 }
+
+/* --- GAYA BARU UNTUK CAROUSEL DI BAGIAN TENTANG KAMI --- */
+#aboutCarousel {
+  border-radius: 10px; /* Samakan dengan elemen lain */
+  overflow: hidden; /* Agar gambar mengikuti sudut melengkung */
+}
+
+.about-carousel-image {
+  aspect-ratio: 4 / 3; /* Menjaga rasio gambar agar seragam */
+  object-fit: cover; /* Pastikan gambar menutupi area tanpa distorsi */
+}
+
+/* Mengubah warna indikator (titik-titik) carousel */
+#aboutCarousel .carousel-indicators [data-bs-target] {
+  background-color: #ffffff;
+  opacity: 0.8;
+}
+
+#aboutCarousel .carousel-indicators .active {
+  background-color: var(--primary-color);
+  opacity: 1;
+}
