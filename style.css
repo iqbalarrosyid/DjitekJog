@@ -403,3 +403,36 @@ footer.bg-dark {
   background-color: color-mix(in srgb, var(--primary-color), black 10%);
   color: #ffffff;
 }
+
+/* --- GAYA UNTUK LOGO NAVBAR DINAMIS --- */
+
+/* Secara default, tampilkan logo utama (putih) dan sembunyikan logo scrolled (gelap) */
+.logo-scrolled {
+  display: none;
+}
+.logo-main {
+  display: inline-block;
+}
+
+/* --- GAYA UNTUK LOGO NAVBAR DINAMIS (REVISI) --- */
+
+/* Default: Selalu tampilkan logo putih (logo-main) dan sembunyikan logo gelap (logo-scrolled).
+   Ini berlaku untuk kondisi awal (navbar transparan) di semua tema. */
+.logo-scrolled {
+  display: none;
+}
+.logo-main {
+  display: inline-block;
+}
+
+/* ATURAN KHUSUS: HANYA jika tema sedang TERANG, dan navbar di-scroll/menu dibuka,
+   barulah kita menukar logonya. */
+[data-bs-theme="light"] .navbar-scrolled .logo-main,
+[data-bs-theme="light"] .navbar-menu-open .logo-main {
+  display: none; /* Sembunyikan logo putih */
+}
+
+[data-bs-theme="light"] .navbar-scrolled .logo-scrolled,
+[data-bs-theme="light"] .navbar-menu-open .logo-scrolled {
+  display: inline-block; /* Tampilkan logo gelap */
+}
